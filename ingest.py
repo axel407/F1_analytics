@@ -53,6 +53,15 @@ def get_sessions_by_year(
     return session_keys
 
 
+def write_json(path, data):
+    """Write data to path as JSON, atomically (via a .tmp file + rename)."""
+    path.parent.mkdir(parents=True, exist_ok=True)
+    tmp = path.with_suffix(".tmp")
+    with open(tmp, "w") as f:
+        json.dump(data, f)
+    tmp.rename(path)
+
+
 def save_data(endpoint, session_key):
     path = RAW_DIR / endpoint / f"{session_key}.json"
     if path.exists():
