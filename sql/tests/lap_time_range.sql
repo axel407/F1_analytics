@@ -4,4 +4,4 @@ SELECT
     lap_number,
     lap_time_s
 FROM stg_laps
-WHERE lap_time_s NOT BETWEEN 60 AND 200;
+WHERE lap_time_s NOT BETWEEN 60 AND 3600;

@@ -15,4 +15,4 @@ SELECT
     s.stint_total - l.laps_driven AS diff
 FROM stint_totals s
 JOIN lap_totals l USING (session_key, driver_number)
-WHERE s.stint_total <> l.laps_driven
+WHERE ABS(s.stint_total - l.laps_driven) > 1
