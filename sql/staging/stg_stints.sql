@@ -7,5 +7,5 @@ SELECT
     lap_start,
     lap_end,
     tyre_age_at_start,
-    lap_end - lap_start AS stint_laps
+    lap_end - lap_start + 1 AS stint_laps
 FROM read_json_auto('data/raw/stints/*.json')
